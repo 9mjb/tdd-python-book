@@ -24,6 +24,7 @@ run:
 
 .PHONY: test
 test:
+>	./manage.py test
 >	./functional_tests.py
 
 
