@@ -1,0 +1,6 @@
+db.sqlite3
+geckodriver.log
+virtualenv
+.requirements.txt.*
+.Backups
+*.pyc
