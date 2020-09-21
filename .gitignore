@@ -4,3 +4,4 @@ virtualenv
 .requirements.txt.*
 .Backups
 *.pyc
+secret_key.py
