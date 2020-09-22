@@ -22,9 +22,12 @@ endif
 run:
 >	manage.py runserver
 
-.PHONY: test
-test:
->	./manage.py test
+.PHONY: test unittests
+test: unittests functional_tests functional_tests
+
+unittests:
+> 	./manage.py test
+functional_tests:
 >	./functional_tests.py
 
 
