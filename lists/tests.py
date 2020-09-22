@@ -15,7 +15,7 @@ class HomePageTest(TestCase):
         #request = HttpRequest()
         #response = home_page(request)
         response = self.client.get('/')
-        self.assertTemplateUsed(response, 'home.html')
+        self.assertTemplateUsed(response, 'home.html') # (ff templates/home.html)
 
         html = response.content.decode('utf8')
         self.assertTrue(html.startswith('<html>'))

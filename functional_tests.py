@@ -39,8 +39,9 @@ class NewVisitorTest(unittest.TestCase):
         time.sleep(1)
 
         input_table = self.browser.find_element_by_id('id_list_table')
-        rows = table.find_elements_by_tag_name('tr')
-        self.assertTrue(any(row.txt == '1: Buy peacock feathers' for row in rows))
+        rows = input_table.find_elements_by_tag_name('tr')
+        self.assertTrue(any(row.txt == '1: Buy peacock feathers' for row in rows),
+                        "New to-do item did not appear in table")
 
         self.fail('Finish the test!')
         # and it still has a new entry text box
