@@ -18,18 +18,18 @@ endif
 # .PHONY: test  # Make will not look for a file named `test` on the file system
 # ######################################################
 
+.PHONY: test
+test: .functional_test
+
+.unittest:
+> 	./manage.py test && touch .unittest
+.functional_test: .unittest
+>	./functional_tests.py && touch .functional_test
+
+
 .PHONY: run
 run:
 >	manage.py runserver
-
-.PHONY: test unittests
-test: unittests functional_tests
-
-unittests:
-> 	./manage.py test
-functional_tests:
->	./functional_tests.py
-
 
 
 
