@@ -23,7 +23,7 @@ run:
 >	manage.py runserver
 
 .PHONY: test unittests
-test: unittests functional_tests functional_tests
+test: unittests functional_tests
 
 unittests:
 > 	./manage.py test
