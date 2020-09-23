@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+# (ff lists/tests.py)
+# (ff lists/templates/home.html)
+
 # ######################################################
 # ######################################################
 # ######################################################
@@ -17,7 +20,7 @@ class NewVisitorTest(unittest.TestCase):
         self.browser.quit()
 
     def test_can_start_a_list_and_retreive_it_later(self):
-        """ test* functions are tests... """
+        # """ test* functions are tests... """
         # check homepage
         self.browser.get('http://localhost:8000')
 
@@ -28,28 +31,36 @@ class NewVisitorTest(unittest.TestCase):
 
         # immediate invite to enter an item
         input_box = self.browser.find_element_by_id('id_new_item')
-        self.assertEqual( input_box.get_attribute('placeholder'),
-                          'Enter a to-do item')
-
+        self.assertEqual( input_box.get_attribute('placeholder'), 'Enter a to-do item')
         # Enter text: "Buy peacock feathers"
-        input_box.send_keys('peacock feathers')
-
+        input_box.send_keys('Buy peacock feathers')
         # <enter> that, and updated page has an item "Buy peacock feathers"
         input_box.send_keys(Keys.ENTER)
         time.sleep(1)
+        #
+        table = self.browser.find_element_by_id('id_list_table')
+        rows = table.find_elements_by_tag_name('tr')
+        #self.assertTrue(any(row.text == '1: Buy peacock feathers' for row in rows),
+        #                f"New to-do item did not appear in table. Content was:\n{table.text}")
+        self.assertIn('1: Buy peacock feathers', [row.text for row in rows])
 
-        input_table = self.browser.find_element_by_id('id_list_table')
-        rows = input_table.find_elements_by_tag_name('tr')
-        self.assertTrue(any(row.txt == '1: Buy peacock feathers' for row in rows),
-                        "New to-do item did not appear in table")
+        # Enter text: "Use feathers to make a fishing lure"
+        input_box = self.browser.find_element_by_id('id_new_item')
+        self.assertEqual( input_box.get_attribute('placeholder'), 'Enter a to-do item')
+        input_box.send_keys('Use pf to make a fly')
+        input_box.send_keys(Keys.ENTER)
+        time.sleep(1)
+        # <enter> that, and updated page has both items in the list
+        table = self.browser.find_element_by_id('id_list_table')
+        rows = table.find_elements_by_tag_name('tr')
+        self.assertIn('1: Buy peacock feathers', [row.text for row in rows])
+        self.assertIn('2: Use pf to make a fly', [row.text for row in rows])
 
         self.fail('Finish the test!')
         # and it still has a new entry text box
 
 
 
-        # Enter text: "Use feathers to make a fishing lure"
-        # <enter> that, and updated page both items in the list
         # site generates, offers, and explains a custom link
         # visiting custom link shows the todo list
 
