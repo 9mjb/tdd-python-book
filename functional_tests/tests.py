@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
 
-# (ff lists/tests.py)
-# (ff lists/templates/home.html)
+# (ff ../lists/tests.py)
+# (ff ../lists/templates/home.html)
 
 # ######################################################
 # ######################################################
 # ######################################################
+from django.test import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
-import unittest # (ff https://docs.python.org/3/library/unittest.html)
+#import unittest # (ff https://docs.python.org/3/library/unittest.html)
 
-class NewVisitorTest(unittest.TestCase):
+class NewVisitorTest(LiveServerTestCase):
 
     # #######################################################
     def setUp(self): # run before each test
@@ -31,7 +32,7 @@ class NewVisitorTest(unittest.TestCase):
     def test_can_start_a_list_and_retreive_it_later(self):
         # """ test* functions are tests... """
         # check homepage
-        self.browser.get('http://localhost:8000')
+        self.browser.get(self.live_server_url) # was 'http://localhost:8000'
 
         # title
         self.assertIn('To-Do', self.browser.title)
@@ -75,5 +76,4 @@ class NewVisitorTest(unittest.TestCase):
         # visiting custom link shows the todo list
 
 
-if __name__ == '__main__':
-    unittest.main()  # warnings='ignore'
+# if __name__ == '__main__': unittest.main()  # warnings='ignore'

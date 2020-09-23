@@ -15,26 +15,14 @@ endif
 .RECIPEPREFIX = >
 
 # targets that don't produce files should be marked as .PHONY
-# .PHONY: test  # Make will not look for a file named `test` on the file system
+# .PHONY: test  # Make will not look that file
 # ######################################################
 
 .PHONY: test
-test: #.functional_test
->	PS4='### ';set -x; ./manage.py test && ./functional_tests.py
-#>	echo === UNIT: && ./manage.py test && echo === FUNCT: && ./functional_tests.py
-
-#.unittest:
-#>	echo -n '=== '
-#> 	./manage.py test && touch .unittest
-#.functional_test: .unittest
-#> 	echo -n '=== '
-#>	./functional_tests.py && touch .functional_test
-
+test:
+>	PS4='### ';set -x; ./manage.py test && ./manage.py test functional_tests
 
 .PHONY: run
 run:
 >	manage.py runserver
-
-
-
 
