@@ -6,3 +6,4 @@ virtualenv
 *.pyc
 secret_key.py
 .*
+TAGS
