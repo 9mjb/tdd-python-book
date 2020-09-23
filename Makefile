@@ -19,12 +19,16 @@ endif
 # ######################################################
 
 .PHONY: test
-test: .functional_test
+test: #.functional_test
+>	PS4='### ';set -x; ./manage.py test && ./functional_tests.py
+#>	echo === UNIT: && ./manage.py test && echo === FUNCT: && ./functional_tests.py
 
-.unittest:
-> 	./manage.py test && touch .unittest
-.functional_test: .unittest
->	./functional_tests.py && touch .functional_test
+#.unittest:
+#>	echo -n '=== '
+#> 	./manage.py test && touch .unittest
+#.functional_test: .unittest
+#> 	echo -n '=== '
+#>	./functional_tests.py && touch .functional_test
 
 
 .PHONY: run
