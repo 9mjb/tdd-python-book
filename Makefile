@@ -20,7 +20,7 @@ endif
 
 .PHONY: test
 test:
->	PS4='### ';set -x; ./manage.py test && ./manage.py test functional_tests
+>	PS4='### ';set -x; ./manage.py test lists && ./manage.py test functional_tests
 
 .PHONY: run
 run:
