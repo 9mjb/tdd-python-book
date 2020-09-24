@@ -1,4 +1,7 @@
+autopep8==1.5.4
 Django==1.11.29
+pycodestyle==2.6.0
 pytz==2020.1
 selenium==3.141.0
+toml==0.10.1
 urllib3==1.25.10
