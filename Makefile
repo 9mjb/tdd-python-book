@@ -26,3 +26,5 @@ test:
 run:
 >	manage.py runserver
 
+tags:
+>	shopt -s globstar; etags {lists,superlists}/**/*.{py,html}

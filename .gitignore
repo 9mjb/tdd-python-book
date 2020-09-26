@@ -7,3 +7,8 @@ virtualenv
 secret_key.py
 .*
 TAGS
+BOOK-EXAMPLE
+DIFF
+lists/DIFF
+lists/migrations
+lists/migrations/*

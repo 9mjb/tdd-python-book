@@ -1,10 +1,18 @@
 from django.db import models
 
-# Create your models here.
+"""
+manage.py test
+django.db.utils.OperationalError: no such column: lists_item.text
+manage.py makemigrations
+manage.py migrate
+"""
 
-# manage.py test
-# django.db.utils.OperationalError: no such column: lists_item.text
-# manage.py makemigrations
+
+class List(models.Model):
+    pass
+
 
 class Item(models.Model):
     text = models.TextField(default='')
+    list = models.ForeignKey(List, default=None)
+
