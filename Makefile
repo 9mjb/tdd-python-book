@@ -21,6 +21,7 @@ endif
 .PHONY: test
 test:
 >	PS4='#-#-# ';set -x; ./manage.py test lists && ./manage.py test functional_tests
+>	echo Testing... PASSED ... it worked
 
 .PHONY: run
 run:

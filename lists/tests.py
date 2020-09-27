@@ -37,9 +37,11 @@ class ListViewTest(TestCase):
 
     def test_displays_only_items_for_that_list(self):
         correct_list = List.objects.create()
+        self.assertTrue( 0 <= correct_list.id <= 100 )
         Item.objects.create(text='itemey 1', list=correct_list)
         Item.objects.create(text='itemey 2', list=correct_list)
         other_list = List.objects.create()
+        self.assertTrue( 0 <= other_list.id <= 100 )
         Item.objects.create(text='other list item 1', list=other_list)
         Item.objects.create(text='other list item 2', list=other_list)
 

@@ -5,7 +5,6 @@ virtualenv
 .Backups
 *.pyc
 secret_key.py
-.*
 TAGS
 BOOK-EXAMPLE
 DIFF
