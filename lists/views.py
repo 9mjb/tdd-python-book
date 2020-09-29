@@ -11,7 +11,7 @@ def new_list(request):
     return redirect(f'/lists/{list_.id}/')
 
 
-def view_list(request, list_id):
+def view_list(request, list_id): # list_id is arg from URL regex capture group (+d)
     list = List.objects.get(id=list_id)
     items = Item.objects.filter(list=list)
     return render(request, 'list.html', {'list': list, 'items': items})
