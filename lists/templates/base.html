@@ -9,17 +9,20 @@
     <title>To-Do lists</title>
     <!-- Bootstrap -->
     <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/base.css" rel="stylesheet">
   </head>
 
   <body>
     <div class="container">
 
       <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-6 col-md-offset-3 jumbotron">
           <div class="text-center">
             <h1>{% block header_text %}{% endblock %}</h1>
             <form method="POST" action="{% block form_action %}{% endblock %}">
-              <input name="item_text" id="id_new_item" placeholder="Enter a to-do item" />
+              <input name="item_text" id="id_new_item"
+                     class="form-control input-lg"
+                     placeholder="Enter a to-do item" />
               {% csrf_token %}
             </form>
           </div>
