@@ -11,3 +11,4 @@ DIFF
 lists/DIFF
 lists/migrations
 lists/migrations/*
+/static
