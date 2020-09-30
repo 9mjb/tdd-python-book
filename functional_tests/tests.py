@@ -6,7 +6,8 @@
 # ######################################################
 # ######################################################
 # ######################################################
-from django.test import LiveServerTestCase
+#from django.test import LiveServerTestCase
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
@@ -17,7 +18,8 @@ MAX_WAIT = 3 # for def wait_for_row_in_the_list_table(self,row_text):
 WAIT_TIME = 0.1
 
 
-class NewVisitorTest(LiveServerTestCase):
+#class NewVisitorTest(LiveServerTestCase):
+class NewVisitorTest(StaticLiveServerTestCase):
 
     # #######################################################
 
